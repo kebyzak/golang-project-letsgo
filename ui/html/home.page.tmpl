@@ -1,0 +1,24 @@
+{{template "base" .}}
+{{define "title"}}Üy{{end}}
+{{define "main"}}
+<h2>Soŋgı Jazbalar</h2>
+{{if .Jazbalar}}
+<table>
+<tr>
+<th>Takırıp</th>
+<th>Küni</th>
+<th>ID</th>
+</tr>
+{{range .Jazbalar}}
+<tr>
+<!-- Use the new semantic URL style-->
+<td><a href='/jazba/{{.ID}}'>{{.Takyryp}}</a></td>
+<td>{{humanDate .Created}}</td>
+<td>#{{.ID}}</td>
+</tr>
+{{end}}
+</table>
+{{else}}
+<p>There's nothing to see here... yet!</p>
+{{end}}
+{{end}}

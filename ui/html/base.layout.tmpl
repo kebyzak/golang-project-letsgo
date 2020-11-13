@@ -1,0 +1,45 @@
+{{define "base"}}
+<!doctype html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>MyAlem</title>
+<link rel='stylesheet' href='/static/css/main.css'>
+<link rel='shortcut icon' href='/static/img/favicon.ico' type='image/x-icon'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap'>
+</head>
+<body>
+<header>
+<h1><a href='/'>MyAlem</a></h1>
+</header>
+<nav>
+<div>
+<a href='/'>Üy</a>
+{{if .IsAuthenticated}}
+<a href='/jazba/create'>Jaŋa Jazba</a>
+{{end}}
+</div>
+<div>
+<!-- Toggle the navigation links -->
+{{if .IsAuthenticated}}
+<form action='/user/logout' method='POST'>
+<button>Shıgıw</button>
+</form>
+{{else}}
+<a href='/user/signup'>Tirkeliw</a>
+<a href='/user/login'>Kiriw</a>
+{{end}}
+</div>
+</nav>
+<main>
+{{with .Flash}}
+<div class='flash '>{{.}}</div>
+{{end}}
+{{template "main" .}}
+</main>
+{{template "footer" .}}
+</body>
+</html>
+{{end}}
+
+

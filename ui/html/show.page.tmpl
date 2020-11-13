@@ -1,0 +1,20 @@
+{{template "base" .}}
+{{define "title"}}Jazba #{{.Jazba.ID}}{{end}}
+{{define "main"}}
+{{with .Jazba}}
+<div class='jazba'>
+<div class='metadata'>
+<strong>{{.Takyryp}}</strong>
+<span>#{{.ID}}</span>
+</div>
+<pre><code>{{.Mazmuny}}</code></pre>
+<div class='metadata'>
+<br>
+<!-- Use the new template function here -->
+<time>Jazılgan Küni: {{humanDate .Created}}</time>
+<br>
+<time>Öşetin Küni: {{humanDate .Expires}}</time>
+</div>
+</div>
+{{end}}
+{{end}}
